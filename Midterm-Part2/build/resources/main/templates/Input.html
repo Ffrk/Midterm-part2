@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Processors</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Processors</h1>
+<form th:object="${processor}" action="Output.html" th:action="@{Output}">
+    <div th:if="${#fields.hasErrors('*')}">
+
+    </div>
+    <p>
+        <label for="pn">Processor Name</label>
+        <input id="pn" th:name="processorName">
+    </p>
+    <p>
+        <label for="manu">Manufacturer</label>
+        <select id="manu" th:field="*{manuFacture}">
+            <option th:each="p: ${facture}" th:value="${f}" th:text="${f}">--- Select manuFacture---</option>
+        </select>
+    </p>
+
+    <p>
+        <label class="group_label">Options</label><br>
+        <label><input type="checkbox" th:field="*{supportWindows}" th:value="yes"/>Windows 11 Ready</label>
+
+    </p>
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<div th:if="${param.error}">
+    <p style="color: red;">Please fill in all fields.</p>
+</div>
+<footer>
+    <p>Sheridan College</p>
+    <p>Ziwei Zhao</p>
+</footer>
+</body>
+</html>

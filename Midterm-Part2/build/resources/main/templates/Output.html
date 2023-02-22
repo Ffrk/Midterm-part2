@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Output Page</title>
+</head>
+<body>
+<h1>Student Information</h1>
+<h1>
+    <h2 th:object="${processor}">
+        <span th:text="*{processorName}">Name:</span>
+    </h2>
+    <p>
+        <label class="group_label">Program:</label>
+        <span class="output" th:text="*{manuFacture}">Manufacture</span>
+    </p>
+</h1>
+<form method="get" th:action="Input.html" action="Input.html">
+    <button type="submit">Back</button>
+</form>
+<footer>
+    <p>Sheridan College</p>
+</footer>
+</body>
+</html>
